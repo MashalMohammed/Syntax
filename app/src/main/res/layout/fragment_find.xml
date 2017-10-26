@@ -1,0 +1,59 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="devmallu.syntax.FindFragment">
+
+    <ListView
+        android:id="@+id/concept_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/find_query" />
+
+    <EditText
+        android:id="@+id/find_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:hint="@string/hint_text" />
+
+    <RelativeLayout
+        android:id="@+id/emptyView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/empty_codeSymbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="200sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:alpha=".2"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="@string/emptySymbol"/>
+        <TextView
+            android:layout_below="@id/empty_codeSymbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/explore_coding"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:alpha=".2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>
