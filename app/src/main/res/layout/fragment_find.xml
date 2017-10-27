@@ -9,14 +9,8 @@
         android:id="@+id/concept_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/find_query" />
-
-    <EditText
-        android:id="@+id/find_query"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:hint="@string/hint_text" />
+        android:headerDividersEnabled="false"
+        android:layout_above="@+id/find_query" />
 
     <RelativeLayout
         android:id="@+id/emptyView"
@@ -56,4 +50,14 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
+
+    <EditText
+        android:id="@+id/find_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:hint="@string/hint_text"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:textSize="24sp" />
 </RelativeLayout>
