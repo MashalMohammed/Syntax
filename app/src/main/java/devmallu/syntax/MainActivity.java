@@ -199,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
         return super.onOptionsItemSelected(item);
     }
 
+    // TODO: method onFragmentInteraction
     @Override
     public void onFragmentInteraction(Uri uri) {
     }

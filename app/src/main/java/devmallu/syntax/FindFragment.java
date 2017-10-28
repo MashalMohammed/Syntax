@@ -21,6 +21,7 @@ public class FindFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    //TODO : use Volley cache
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,5 +33,5 @@ public class FindFragment extends Fragment {
         super.onDetach();
     }
 
-    //TODO: create methods for fetching query and adapting
+    //TODO : transfer methods to fragment
 }
