@@ -5,13 +5,20 @@
     android:layout_height="match_parent"
     tools:context="devmallu.syntax.FindFragment">
 
+    <EditText
+        android:id="@+id/find_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:hint="@string/hint_text"
+        android:layout_alignParentBottom="true"
+        android:textSize="24sp"/>
     <ListView
         android:id="@+id/concept_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:headerDividersEnabled="false"
         android:layout_above="@+id/find_query" />
-
     <RelativeLayout
         android:id="@+id/emptyView"
         android:orientation="vertical"
@@ -40,24 +47,13 @@
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:alpha=".2"/>
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
-            android:visibility="invisible"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
     </RelativeLayout>
-
-    <EditText
-        android:id="@+id/find_query"
-        android:layout_width="match_parent"
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:hint="@string/hint_text"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:textSize="24sp" />
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
