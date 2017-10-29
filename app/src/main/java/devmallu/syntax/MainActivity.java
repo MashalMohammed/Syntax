@@ -115,12 +115,12 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
                         progressBar.setVisibility(View.GONE);
 
                         final ArrayList<Concept> concepts = extractConcepts(response);
-                        if(concepts.size()==0){
-                            dialog = new Dialog(getApplicationContext());
-                            dialog.setTitle("No result..");
-                            dialog.setCancelable(true);
-                            dialog.show();
-                        }
+//                        if(concepts.size()==0){
+//                            dialog = new Dialog(getApplicationContext());
+//                            dialog.setTitle("No result..");
+//                            dialog.setCancelable(true);
+//                            dialog.show();
+//                        }
 //                        Log.v("concepts :",concepts.toString());
                         ConceptAdapter mAdapter = new ConceptAdapter(getApplicationContext(),concepts);
                         listView.setAdapter(mAdapter);
