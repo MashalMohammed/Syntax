@@ -11,14 +11,13 @@
         android:layout_height="wrap_content"
         android:elevation="10dp"
         android:hint="@string/hint_text"
-        android:layout_alignParentBottom="true"
         android:textSize="24sp"/>
     <ListView
         android:id="@+id/concept_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:headerDividersEnabled="false"
-        android:layout_above="@+id/find_query" />
+        android:layout_below="@+id/find_query" />
     <RelativeLayout
         android:id="@+id/emptyView"
         android:orientation="vertical"

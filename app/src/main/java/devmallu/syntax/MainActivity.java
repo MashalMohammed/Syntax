@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
                     mViewPager.setCurrentItem(0, true);
                 }else{
                         conceptQuery();
+                        onFragmentInteraction();
                 }
             }
         });
@@ -193,6 +194,6 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
 
     @Override
     public void onFragmentInteraction() {
-
+        Log.v("FRAG","onFragmentInteraction called");
     }
 }

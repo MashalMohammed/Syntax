@@ -22,7 +22,6 @@ public class ConceptActivity extends AppCompatActivity {
 
         Concept concept = getIntent().getParcelableExtra("concept");
 
-        TextView cHead = (TextView) findViewById(R.id.c_head);
         TextView cDesc = (TextView) findViewById(R.id.c_description);
         TextView cSyntax = (TextView) findViewById(R.id.c_syntax);
         TextView cExample = (TextView) findViewById(R.id.c_example);
@@ -30,7 +29,6 @@ public class ConceptActivity extends AppCompatActivity {
         TextView cDocu  = (TextView) findViewById(R.id.c_documentation);
 
         getSupportActionBar().setTitle(concept.getConcept());
-        cHead.setText(concept.getConcept());
         cDesc.setText(concept.getDescription());
         cSyntax.setText(concept.getSyntax());
         cExample.setText(concept.getExample());
