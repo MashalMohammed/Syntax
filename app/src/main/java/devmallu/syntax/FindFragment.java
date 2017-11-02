@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 public class FindFragment extends Fragment {
 
-
     public FindFragment() {
         // Required empty public constructor
     }

@@ -1,8 +1,6 @@
 package devmallu.syntax;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -43,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
      */
     private ViewPager mViewPager;
     private ProgressBar progressBar;
-    private Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +49,10 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         /**
-         *  Create the adapter that will return a fragment for each of the three
-         *  primary sections of the activity.
-         *  The {@link android.support.v4.view.PagerAdapter} that will provide
-         *  fragments for each of the sections. We use a
-         *  {@link FragmentPagerAdapter} derivative, which will keep every
-         *  loaded fragment in memory. If this becomes too memory intensive, it
-         *  may be best to switch to a
-         *  {@link FragmentStatePagerAdapter}.
+         *  Create the adapter that will return a fragment for each of the three primary sections of the activity.
+         *  The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the sections.
+         *  We use a {@link FragmentPagerAdapter} derivative, which will keep every loaded fragment in memory.
+         *  If this becomes too memory intensive, it may be best to switch to a {@link FragmentStatePagerAdapter}.
          */
         PagerAdapter mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
 
@@ -110,18 +103,9 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-//                        Log.d("Concept Response : ", response.toString());
-//                        pDialog.hide();
                         progressBar.setVisibility(View.GONE);
 
                         final ArrayList<Concept> concepts = extractConcepts(response);
-//                        if(concepts.size()==0){
-//                            dialog = new Dialog(getApplicationContext());
-//                            dialog.setTitle("No result..");
-//                            dialog.setCancelable(true);
-//                            dialog.show();
-//                        }
-//                        Log.v("concepts :",concepts.toString());
                         ConceptAdapter mAdapter = new ConceptAdapter(getApplicationContext(),concepts);
                         listView.setAdapter(mAdapter);
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -141,23 +125,18 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
                 Snackbar.make(mViewPager,"Error : check connection ",Snackbar.LENGTH_SHORT).show();
 
                 VolleyLog.d("Concept Error", "Error: " + error.getMessage());
-//                pDialog.hide();
                 emptyView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
 
             }
         });
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(req, tag_json_arry);
+        AppController.getInstance().addToRequestQueue(req, tag_json_arry);        // Adding request to request queue
     }
 
     public static ArrayList<Concept> extractConcepts(JSONArray jsonResponse){
         ArrayList<Concept> concepts = new ArrayList<>();
 
         try {
-//            JSONObject root  = new JSONObject(jsonResponse);
-//            JSONArray jsonResponse = root.getJSONArray("features");
             /**
              * nested JSON object path finding
              */
@@ -200,9 +179,7 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
     }
 
     // TODO: method onFragmentInteraction
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-    }
+
 
     @Override
     public void onStart() {
@@ -212,5 +189,10 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
     @Override
     public void onStop() {
         super.onStop();
+    }
+
+    @Override
+    public void onFragmentInteraction() {
+
     }
 }

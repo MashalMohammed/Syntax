@@ -23,7 +23,7 @@ public class Concept implements Parcelable {
         this.documentation=documentation;
     }
 
-    protected Concept(Parcel in) {
+    private Concept(Parcel in) {
         id = in.readInt();
         concept = in.readString();
         description = in.readString();

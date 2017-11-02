@@ -11,7 +11,6 @@ import java.util.Objects;
 import devmallu.syntax.utils.Concept;
 
 public class ConceptActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
