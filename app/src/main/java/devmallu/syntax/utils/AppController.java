@@ -1,8 +1,5 @@
 package devmallu.syntax.utils;
 
-/**
- * Created by mashal on 21/10/17.
- */
 import devmallu.syntax.utils.LruBitmapCache;
 import android.app.Application;
 import android.text.TextUtils;

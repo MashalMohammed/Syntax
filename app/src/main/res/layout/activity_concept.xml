@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/c_syntax"
-                android:text="@string/syntax"
+                android:text="@string/c_syntax"
                 android:padding="@dimen/syntaxTextView"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:textSize="18sp" />
             <TextView
                 android:id="@+id/c_example"
-                android:text="@string/syntax"
+                android:text="@string/c_syntax"
                 android:padding="@dimen/syntaxTextView"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"

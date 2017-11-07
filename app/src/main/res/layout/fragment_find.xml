@@ -5,21 +5,40 @@
     android:layout_height="match_parent"
     tools:context="devmallu.syntax.FindFragment">
 
-    <EditText
-        android:id="@+id/find_query"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:hint="@string/hint_text"
-        android:textSize="24sp"/>
-    <ListView
-        android:id="@+id/concept_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:headerDividersEnabled="false"
-        android:layout_below="@+id/find_query" />
     <RelativeLayout
-        android:id="@+id/emptyView"
+        android:id="@+id/find_et_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_light_background"
+        android:elevation="2dp">
+        <ImageView
+            android:id="@+id/find_et_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_x"
+            android:visibility="visible"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+        <EditText
+            android:id="@+id/find_query"
+            android:padding="@dimen/default_gap"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:background="@android:color/transparent"
+            android:hint="@string/hint_text"
+            android:textSize="24sp"
+            android:layout_toStartOf="@id/find_et_x"/>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/find_concept_list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:headerDividersEnabled="false"
+        android:layout_below="@+id/find_et_frame"
+        android:divider="@null"/>
+    <RelativeLayout
+        android:id="@+id/find_emptyView"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +46,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true">
         <TextView
-            android:id="@+id/empty_codeSymbol"
+            android:id="@+id/find_empty_codeSymbol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -39,7 +58,7 @@
             android:gravity="center"
             android:text="@string/emptySymbol"/>
         <TextView
-            android:layout_below="@id/empty_codeSymbol"
+            android:layout_below="@id/find_empty_codeSymbol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/explore_coding"
@@ -51,7 +70,7 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
+        android:id="@+id/find_progressBar"
         android:visibility="invisible"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />

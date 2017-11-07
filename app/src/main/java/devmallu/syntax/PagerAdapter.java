@@ -3,15 +3,19 @@ package devmallu.syntax;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
+
 
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-public class PagerAdapter extends FragmentPagerAdapter {
-
-    public PagerAdapter(FragmentManager fm) {
+class PagerAdapter extends FragmentPagerAdapter {
+    private String[] pageTitle = {"Find","Explore","Recent"};
+    private FragmentManager mManager;
+    PagerAdapter(FragmentManager fm) {
         super(fm);
+        mManager =fm;
     }
 
     @Override
@@ -29,14 +33,14 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
-            case 0:
-                return "Find";
-            case 1:
-                return "Explore";
-            case 2:
-                return "Recent";
-        }
-        return null;
+        return pageTitle[position];
+//        int[] imageResId={R.drawable.ic_find,R.drawable.ic_explore,R.drawable.ic_recent};
+//        Drawable image = getDrawable(getItem(position).getContext(),imageResId[position]);
+//        image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+//        SpannableString sb = new SpannableString(" ");
+//        ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+//        sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        return sb;
     }
+
 }

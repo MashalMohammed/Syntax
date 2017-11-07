@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
          *  If this becomes too memory intensive, it may be best to switch to a {@link FragmentStatePagerAdapter}.
          */
         PagerAdapter mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setOffscreenPageLimit(3);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent,null));
         tabLayout.setupWithViewPager(mViewPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
                 if (mViewPager.getCurrentItem() != 0) {
                     mViewPager.setCurrentItem(0, true);
                 }else{
-                        conceptQuery();
-                        onFragmentInteraction();
+                    conceptQuery();
+                    onFragmentInteraction();
                 }
             }
         });
@@ -78,8 +78,9 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
 
     private void conceptQuery() {
         EditText queryEditText  = (EditText) findViewById(R.id.find_query);
-        final ListView listView = (ListView) findViewById(R.id.concept_list);
-        final View emptyView = findViewById(R.id.emptyView);
+        final ListView listView = (ListView) findViewById(R.id.find_concept_list);
+        listView.setNestedScrollingEnabled(true);
+        final View emptyView = findViewById(R.id.find_emptyView);
 //        Log.v("List View",listView.toString());
 
         String query = queryEditText.getText().toString();
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
 //        pDialog.show();
 
         emptyView.setVisibility(View.GONE);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.find_progressBar);
         progressBar.setVisibility(View.VISIBLE);
         JsonArrayRequest req = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {
@@ -138,9 +139,7 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
         ArrayList<Concept> concepts = new ArrayList<>();
 
         try {
-            /**
-             * nested JSON object path finding
-             */
+            /** nested JSON object path finding */
             for (int i = 0;i<jsonResponse.length();i++){
                 JSONObject ithConcept = jsonResponse.getJSONObject(i);
                 int id = ithConcept.getInt("id");
@@ -178,9 +177,6 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
         }
         return super.onOptionsItemSelected(item);
     }
-
-    // TODO: method onFragmentInteraction
-
 
     @Override
     public void onStart() {

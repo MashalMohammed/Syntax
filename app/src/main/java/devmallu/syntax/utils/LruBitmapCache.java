@@ -1,8 +1,5 @@
 package devmallu.syntax.utils;
 
-/**
- * Created by mashal on 21/10/17.
- */
 import com.android.volley.toolbox.ImageLoader.ImageCache;
 
 import android.graphics.Bitmap;
